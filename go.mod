@@ -1,4 +1,4 @@
-module github.com/yourname/tokenbroker
+module github.com/NoiseMeldOrg/rapture-tokenbroker
 
 go 1.22
 
