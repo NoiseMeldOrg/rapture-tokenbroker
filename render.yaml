@@ -1,0 +1,37 @@
+services:
+  - type: web
+    name: tokenbroker
+    env: go
+    plan: standard
+    buildCommand: go build -o server .
+    startCommand: ./server
+    autoDeploy: true
+    healthCheckPath: /healthz
+    envVars:
+      - key: GOOGLE_SA_JSON
+        sync: false
+      - key: OIDC_CLIENT_ID
+        sync: false
+      - key: CORS_ORIGIN
+        value: "*"
+      - key: TOKEN_SCOPE
+        value: "https://www.googleapis.com/auth/cloud-platform"
+      # Optional: domain lock
+      # - key: ALLOWED_HD
+      #   value: "example.com"
+      # Rate limiting (tune as needed)
+      - key: RATE_PER_MIN
+        value: "60"
+      - key: RATE_BURST
+        value: "30"
+      - key: IP_RATE_PER_MIN
+        value: "120"
+      - key: IP_BURST
+        value: "60"
+      - key: RATE_CLEANUP_MINS
+        value: "30"
+    autoScaling:
+      minInstances: 2
+      maxInstances: 20
+      cpuThreshold: 60
+      memoryThreshold: 70
