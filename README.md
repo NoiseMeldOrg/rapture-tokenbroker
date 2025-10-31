@@ -1,7 +1,17 @@
-# Token Broker (Go + Render + Google OIDC → Google Cloud Access Token)
+# Token Broker
+
+> **For:** Rapture for Android and Rapture for iOS
+> **Purpose:** Secure API key management for Google Cloud services
 
 Verifies a **Google ID token** (Google Sign-In / One-Tap), then mints a **short-lived Google Cloud access token** from a **Service Account**.
 Includes `/whoami` for debugging and **rate limiting** to protect the broker.
+
+## Quick Links
+
+- 📖 **[Overview](docs/overview.md)** - What is the token broker and why do we need it?
+- 🚀 **[Deployment Guide](docs/deployment.md)** - Step-by-step deployment to Render.com
+- 📱 **[Android Integration](docs/android-integration.md)** - Integrate with Rapture Android app
+- 🍎 **[iOS Integration](docs/ios-integration.md)** - Integrate with Rapture iOS app (future)
 
 ## Endpoints
 
